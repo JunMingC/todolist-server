@@ -1,163 +1,85 @@
-# Todo Management System
+# **Todo Management System**
 
-This project is a Todo Management System developed using SQL Server, Entity Framework, and .NET 8.0. It includes a set of tables designed to efficiently manage todo items, their priorities, statuses, and associated tags. The system is built using Test-Driven Development (TDD) principles, with xUnit as the testing framework.
+The **Todo Management System** is a robust application designed for managing todo items, built using **SQL Server**, **Entity Framework**, and **.NET 8.0**. This project follows **Test-Driven Development (TDD)** principles and utilizes **xUnit** as the testing framework to ensure code quality and reliability.
 
-## Table of Contents
+## **Live Demo**
+Check out the live version hosted on Google Cloud Platform:
 
-1. [Project Overview](#project-overview)
-2. [Technologies Used](#technologies-used)
-3. [Database Schema](#database-schema)
-    - [Priorities Table](#priorities-table)
-    - [Status Table](#status-table)
-    - [Tags Table](#tags-table)
-    - [Todos Table](#todos-table)
-    - [TodoTags Junction Table](#todotags-junction-table)
-4. [Setup Instructions](#setup-instructions)
-5. [Test-Driven Development (TDD)](#test-driven-development-tdd)
-6. [Usage](#usage)
-7. [Maintenance](#maintenance)
-8. [Contributing](#contributing)
-9. [License](#license)
+- **Link:** [Todo Management System](https://todolist-433816.as.r.appspot.com/)
 
-## Project Overview
+## **Table of Contents**
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Testing](#testing)
+5. [Database Setup](#database-setup)
+6. [Technologies Used](#technologies-used)
+7. [License](#license)
 
-The Todo Management System is designed to help users manage and track their tasks effectively. It leverages SQL Server for data storage and management, Entity Framework for seamless database interactions, and .NET 8.0 for robust application development. The application allows users to categorize tasks by setting priorities, tracking statuses, and assigning tags. Using a Test-Driven Development (TDD) approach with xUnit ensures that the system is reliable and maintainable, providing a solid foundation for future enhancements.
+## **Features**
+- **Manage Todos:** Add, update, delete, and view todo items.
+- **Prioritization:** Assign priorities to tasks.
+- **Status Tracking:** Keep track of task statuses (e.g., pending, completed).
+- **Tagging:** Organize tasks with tags for easy filtering.
+- **API Documentation:** Swagger UI for easy API testing and exploration.
+- **TDD with xUnit:** Comprehensive test coverage using xUnit framework.
 
-## Technologies Used
+## **Installation**
+Follow these steps to set up the Todo Management System on your local machine:
 
--   **SQL Server**: Relational database management system for storing data.
--   **Entity Framework**: An ORM framework for .NET, used to interact with the database.
--   **.NET 8.0**: The framework for building and running the application.
--   **xUnit**: A testing framework for .NET applications, used to implement TDD.
+### Prerequisites
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
-## Database Schema
-
-### Priorities Table
-
-The `Priorities` table stores different priority levels that can be assigned to todo items. It includes the following fields:
-
--   `Id`: Unique identifier with auto-increment.
--   `Name`: Name of the priority level (e.g., High, Medium, Low).
--   `Color`: Hex codes with alpa values to represent the priority visually
--   `CreatedAt`: Timestamp for when the priority was created (defaults to the current date/time).
--   `UpdatedAt`: Timestamp for when the priority was last updated (defaults to the current date/time).
-
-**Sample Data:**
-
--   High Priority (`#FF0000`)
--   Medium Priority (`#FFFF00`)
--   Low Priority (`#00FF00`)
-
-### Status Table
-
-The `Status` table stores different statuses that can be assigned to todo items. It includes the following fields:
-
--   `Id`: Unique identifier with auto-increment.
--   `Name`: Name of the status (e.g., Not Started, In Progress, Completed).
--   `Color`: Hex codes with alpa values to represent the status visually.
--   `CreatedAt`: Timestamp for when the status was created (defaults to the current date/time).
--   `UpdatedAt`: Timestamp for when the status was last updated (defaults to the current date/time).
-
-**Sample Data:**
-
--   Not Started (`#FFFF00`)
--   In Progress (`#0000FF`)
--   Completed (`#00FF00`)
-
-### Tags Table
-
-The `Tags` table allows categorizing todo items by tags. It includes the following fields:
-
--   `Id`: Unique identifier with auto-increment.
--   `Name`: Name of the tag (e.g., Personal, Work, Research).
--   `Color`: Hex codes with alpa values to represent the tag visually.
--   `CreatedAt`: Timestamp for when the tag was created (defaults to the current date/time).
--   `UpdatedAt`: Timestamp for when the tag was last updated (defaults to the current date/time).
-
-**Sample Data:**
-
--   Personal (`#FF69B4`)
--   Work (`#4682B4`)
--   Research (`#8A2BE2`)
--   Development (`#32CD32`)
--   Review (`#FFD700`)
--   Training (`#D3D3D3`)
-
-### Todos Table
-
-The `Todos` table stores individual todo items. It includes the following fields:
-
--   `Id`: Unique identifier with auto-increment.
--   `Name`: Name of the todo item.
--   `Description`: Description of the todo item (nullable).
--   `DueDate`: Due date for the todo item (nullable).
--   `PriorityId`: Foreign key reference to the `Priorities` table (nullable).
--   `StatusId`: Foreign key reference to the `Status` table (nullable).
--   `CreatedAt`: Timestamp for when the todo item was created (defaults to the current date/time).
--   `UpdatedAt`: Timestamp for when the todo item was last updated (defaults to the current date/time).
-
-**Sample Data:**
-
--   Prepare project proposal (`High Priority`, `In Progress`)
--   Team meeting (`Medium Priority`, `Not Started`)
--   Code review (`Low Priority`, `Not Started`)
-
-### TodoTags Junction Table
-
-The `TodoTags` table is a junction table that creates a many-to-many relationship between `Todos` and `Tags`. It includes:
-
--   `TodoId`: Foreign key reference to the `Todos` table.
--   `TagId`: Foreign key reference to the `Tags` table.
--   Composite primary key: `(TodoId, TagId)`.
-
-**Sample Data:**
-
--   Prepare project proposal linked with `Work` and `Research` tags.
--   Team meeting linked with `Work` and `Training` tags.
--   Code review linked with `Work` and `Research` tags.
-
-## Setup Instructions
-
-1. **Scaffold DbContext from SQL Tables**: Use the Entity Framework tools to scaffold the `DbContext` from existing SQL tables. This can be done using the command:
-
+### Setup Steps
+1. **Clone the repository:**
     ```bash
-    dotnet ef dbcontext scaffold "YourConnectionStringHere" Microsoft.EntityFrameworkCore.SqlServer -o Models
+    git clone https://github.com/your-repo-url/todo-management-system.git
+    cd todo-management-system
     ```
 
-    This command will generate a `DbContext` class and entity classes for each table.
+2. **Update Configuration:**
+    - Update the server connection string in:
+        - `TodoListApi\.env`
+        - `TodoListTest\.env.json`
 
-2. **Run Migrations**: Use Entity Framework migrations to apply any additional changes to the database schema:
+3. **Populate the Database:**
+    - Execute the SQL script provided to set up the database:
+        - File: `Scripts/sqlserver/PopulateDatabase.sql`
 
+## **Usage**
+
+1. **Run the API:**
     ```bash
-    dotnet ef migrations add InitialCreate
-    dotnet ef database update
+    cd TodoListApi
+    dotnet run
+    ```
+    - Open your browser and navigate to [http://localhost:5228](http://localhost:5228) to access the API.
+
+2. **API Documentation:**
+    - Swagger UI will be available at: [http://localhost:5228/swagger/index.html](http://localhost:5228/swagger/index.html)
+
+## **Testing**
+To run the automated tests, follow these steps:
+
+1. **Navigate to the test project directory:**
+    ```bash
+    cd TodoListTest
     ```
 
-3. **Insert Initial Data**: Modify the `DbContext` or use SQL scripts to seed the database with initial data for the `Priorities`, `Status`, `Tags`, and `Todos` tables.
-
-4. **Run the Application**: Use Visual Studio or the .NET CLI to build and run the application.
-
-## Test-Driven Development (TDD)
-
-This project follows TDD principles using xUnit. To run tests:
-
-1. **Add Tests**: Write unit tests using xUnit to cover different scenarios for managing todo items, priorities, statuses, and tags.
-2. **Run Tests**: Execute the tests using the .NET CLI:
-
+2. **Run the tests:**
     ```bash
     dotnet test
     ```
 
-    Ensure that all tests pass before committing changes.
+## **Database Setup**
+- The system uses **SQL Server** for managing the todo items, priorities, statuses, and tags.
+- To initialize the database, use the provided SQL script:
+  - Path: `Scripts/sqlserver/PopulateDatabase.sql`
 
-3. **Continuous Integration**: Integrate tests into a CI pipeline to ensure quality and stability.
-
-## Usage
-
--   **Adding Todos**: Use the application's interface or API to add todo items with associated priorities, statuses, and tags.
--   **Updating Todos**: Update existing todo items through the interface or API. The `UpdatedAt` timestamp is managed automatically by the system.
--   **Querying**: Use the application's features or direct SQL queries for data retrieval. Entity Framework handles query optimizations.
-
-## Maintenance
-
--   **Database Updates**: Use Entity Framework migrations to handle schema changes and updates.
+## **Technologies Used**
+- **Backend:** .NET 8.0, ASP.NET Core Web API, Entity Framework Core
+- **Database:** SQL Server
+- **Testing:** xUnit
+- **Hosting:** Google Cloud Platform (GCP)
+- **API Documentation:** Swagger

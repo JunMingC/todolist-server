@@ -1,0 +1,27 @@
+runtime: aspnetcore
+env: flex
+
+runtime_config:
+  runtime_version: "8"
+  operating_system: "ubuntu22"
+
+# This sample incurs costs to run on the App Engine flexible environment. 
+# The settings below are to reduce costs during testing and are not appropriate
+# for production use. For more information, see:
+# https://cloud.google.com/appengine/docs/flexible/dotnet/configuring-your-app-with-app-yaml
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+env_variables:
+# get from .env file
+  SQLSERVER_HOST: cloudsql # set to 'cloudsql' when deploying to App Engine Flexible environment
+  DB_USER: DB_USER
+  DB_PASS: DB_PASS
+  DB_NAME: DB_NAME
+
+beta_settings:
+  cloud_sql_instances: todolist-433816:asia-southeast1:todolist=tcp:1433

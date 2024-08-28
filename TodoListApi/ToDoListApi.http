@@ -1,0 +1,25 @@
+@TodoListApi_HostAddress = http://localhost:5228
+
+### Get Todo by ID
+GET {{TodoListApi_HostAddress}}/api/todo/1
+Accept: application/json
+
+### Create a new Todo
+POST {{TodoListApi_HostAddress}}/api/todo
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "string",
+  "description": "string",
+  "dueDate": "2024-08-19T04:58:06.8247144Z",
+  "priorityId": 1,
+  "statusId": 1,
+  "tags": [
+    {
+      "id": 1,
+      "name": "string",
+      "color": "string"
+    }
+  ]
+}

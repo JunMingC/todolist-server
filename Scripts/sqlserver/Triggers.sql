@@ -1,0 +1,49 @@
+-- NOT USED
+
+-- Trigger to automatically update the UpdatedAt timestamp on update
+--CREATE TRIGGER trg_UpdateTimestamp_Priorities
+--ON Priorities
+--AFTER UPDATE
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
+--    UPDATE Priorities
+--    SET UpdatedAt = GETDATE()
+--    WHERE Id IN (SELECT DISTINCT Id FROM Inserted);
+--END;
+
+-- Trigger to automatically update the UpdatedAt timestamp on update
+--CREATE TRIGGER trg_UpdateTimestamp_Status
+--ON Status
+--AFTER UPDATE
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
+--    UPDATE Status
+--    SET UpdatedAt = GETDATE()
+--    WHERE Id IN (SELECT DISTINCT Id FROM Inserted);
+--END;
+
+-- Trigger to automatically update the UpdatedAt timestamp on update
+--CREATE TRIGGER trg_UpdateTimestamp_Tags
+--ON Tags
+--AFTER UPDATE
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
+--    UPDATE Tags
+--    SET UpdatedAt = GETDATE()
+--    WHERE Id IN (SELECT DISTINCT Id FROM Inserted);
+--END;
+
+-- Trigger to automatically update the UpdatedAt timestamp on update
+--CREATE TRIGGER trg_UpdateTimestamp_Todos
+--ON Todos
+--AFTER UPDATE
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
+--    UPDATE Todos
+--    SET UpdatedAt = GETDATE()
+--    WHERE Id IN (SELECT DISTINCT Id FROM Inserted);
+--END;

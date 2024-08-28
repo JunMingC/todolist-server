@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Server=DESKTOP-QLG0U33\MSSQLSERVER02;Database=TodoList;Integrated Security=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models

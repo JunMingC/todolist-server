@@ -54,10 +54,10 @@ Follow these steps to set up the Todo Management System on your local machine:
     cd TodoListApi
     dotnet run
     ```
-    - Open your browser and navigate to [http://localhost:5228](http://localhost:5228) to access the API.
+
 
 2. **API Documentation:**
-    - Swagger UI will be available at: [http://localhost:5228/swagger/index.html](http://localhost:5228/swagger/index.html)
+    - Swagger UI will be available at: [http://localhost:5228](http://localhost:5228)
 
 ## **Testing**
 To run the automated tests, follow these steps:

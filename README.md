@@ -34,7 +34,7 @@ Follow these steps to set up the Todo Management System on your local machine:
 ### Setup Steps
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-repo-url/todo-management-system.git
+    git clone https://github.com/JunMingC/todolist-server
     cd todo-management-system
     ```
 

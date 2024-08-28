@@ -22,6 +22,7 @@ env_variables:
   DB_USER: DB_USER
   DB_PASS: DB_PASS
   DB_NAME: DB_NAME
+  Integrated_Security: false
 
 beta_settings:
   cloud_sql_instances: todolist-433816:asia-southeast1:todolist=tcp:1433

@@ -22,6 +22,7 @@ var sqlBuilder = new SqlConnectionStringBuilder()
     UserID = Environment.GetEnvironmentVariable("DB_USER"),             // e.g. 'my-db-user'
     Password = Environment.GetEnvironmentVariable("DB_PASS"),           // e.g. 'my-db-password'
     InitialCatalog = Environment.GetEnvironmentVariable("DB_NAME"),     // e.g. 'my-database'
+    IntegratedSecurity = Convert.ToBoolean(Environment.GetEnvironmentVariable("Integrated_Security")),
     TrustServerCertificate = true,
     Encrypt = false, // The Cloud SQL proxy provides encryption between the proxy and instance
 };

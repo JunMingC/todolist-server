@@ -1,4 +1,4 @@
-# **Todo Management System**
+# **Todo Management System - Server**
 
 The **Todo Management System** is a robust application designed for managing todo items, built using **SQL Server**, **Entity Framework**, and **.NET 8.0**. This project follows **Test-Driven Development (TDD)** principles and utilizes **xUnit** as the testing framework to ensure code quality and reliability.
 
